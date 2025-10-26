@@ -2,80 +2,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KM Takip Demo</title>
+<title>Türk Riders - KM Scoreboard Demo</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-  header { background: #4a90e2; color: white; padding: 1rem; text-align: center; }
-  .container { max-width: 800px; margin: 2rem auto; padding: 1rem; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px; }
-  input[type=text], input[type=number], button { padding: 0.5rem; margin: 0.3rem 0; width: 100%; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc; }
-  button { background: #4a90e2; color: white; border: none; cursor: pointer; }
-  button:hover { background: #357ABD; }
-  table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-  th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: center; }
-  th { background: #f0f0f0; }
-  .winner { color: gold; font-weight: bold; }
+  /* Genel site stili */
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; }
+  header { background:#003366; color:white; padding:1rem; text-align:center; }
+  nav { background:#0055aa; color:white; padding:0.5rem 1rem; }
+  nav a { color:white; margin-right:1rem; text-decoration:none; }
+  main { padding:2rem; min-height:80vh; position:relative; }/* KM Scoreboard kutusu */ #kmScoreboard { position:fixed; bottom:20px; right:20px; width:250px; background:white; border:2px solid #0055aa; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.2); padding:1rem; } #kmScoreboard h3 { margin-top:0; font-size:1.1rem; text-align:center; } table { width:100%; border-collapse:collapse; } th, td { border:1px solid #ccc; padding:0.3rem; text-align:center; } th { background:#f0f0f0; }
+
 </style>
 </head>
 <body>
 <header>
-  <h1>Genç Riders Bandırma - KM Takip Demo</h1>
+  <h1>Türk Riders Chopper Club</h1>
 </header>
-<div class="container" id="loginDiv">
-  <h2>Koç Girişi</h2>
-  <input type="text" id="coachName" placeholder="Koç Adı">
-  <button onclick="login()">Giriş Yap</button>
-</div><div class="container" id="kmDiv" style="display:none;">
-  <h2>KM Girişi</h2>
-  <div id="kmForm"></div>
-  <button onclick="updateTable()">Kaydet ve Skor Tablosunu Göster</button>
-</div><div class="container" id="scoreDiv" style="display:none;">
-  <h2>Skor Tablosu</h2>
-  <table>
-    <thead>
-      <tr><th>Üye</th><th>Toplam KM</th></tr>
-    </thead>
-    <tbody id="scoreTable"></tbody>
-  </table>
-</div><script>
-const members = ["Ayberk", "Eren", "Tolga", "Burak", "Kaan"];
-let kmData = {};
-members.forEach(m => kmData[m] = 0);
-
-function login() {
-  const name = document.getElementById('coachName').value;
-  if(name.trim() === '') { alert('Lütfen koç adını girin'); return; }
-  document.getElementById('loginDiv').style.display = 'none';
-  document.getElementById('kmDiv').style.display = 'block';
-  renderKmForm();
-}
-
-function renderKmForm() {
-  const formDiv = document.getElementById('kmForm');
-  formDiv.innerHTML = '';
-  members.forEach(m => {
-    formDiv.innerHTML += `<label>${m} KM:</label><input type='number' id='km_${m}' placeholder='0'>`;
-  });
-}
-
-function updateTable() {
-  members.forEach(m => {
-    const val = parseInt(document.getElementById('km_' + m).value) || 0;
-    kmData[m] += val;
-  });
-  renderScoreTable();
-  document.getElementById('kmDiv').style.display = 'none';
-  document.getElementById('scoreDiv').style.display = 'block';
-}
-
-function renderScoreTable() {
-  const tbody = document.getElementById('scoreTable');
-  tbody.innerHTML = '';
-  const sortedMembers = Object.keys(kmData).sort((a,b) => kmData[b]-kmData[a]);
-  sortedMembers.forEach((m, i) => {
-    const winnerClass = i===0 ? 'winner' : '';
-    tbody.innerHTML += `<tr class='${winnerClass}'><td>${m}</td><td>${kmData[m]}</td></tr>`;
-  });
-}
-</script>
+<nav>
+  <a href="#">Ana Sayfa</a>
+  <a href="#">Hakkımızda</a>
+  <a href="#">Etkinlikler</a>
+  <a href="#">İletişim</a>
+</nav>
+<main>
+  <h2>Hoşgeldiniz!</h2>
+  <p>Bu demo sayfa, KM Scoreboard için tasarlanmıştır. İçerik tamamen boş bırakılmıştır.</p>  <!-- KM Scoreboard Alanı -->  <div id="kmScoreboard">
+    <h3>KM Scoreboard</h3>
+    <table>
+      <thead>
+        <tr><th>Üye</th><th>KM</th></tr>
+      </thead>
+      <tbody>
+        <!-- Buraya veri eklenecek -->
+      </tbody>
+    </table>
+    <p style="text-align:center;font-size:0.8rem;color:#555;">Veriler daha sonra eklenecek</p>
+  </div>
+</main>
 </body>
 </html>
