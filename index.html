@@ -2,41 +2,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Türk Riders - KM Scoreboard Demo</title>
+<title>Türk Riders Demo + KM Scoreboard</title>
 <style>
-  /* Genel site stili */
-  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; }
-  header { background:#003366; color:white; padding:1rem; text-align:center; }
-  nav { background:#0055aa; color:white; padding:0.5rem 1rem; }
-  nav a { color:white; margin-right:1rem; text-decoration:none; }
-  main { padding:2rem; min-height:80vh; position:relative; }/* KM Scoreboard kutusu */ #kmScoreboard { position:fixed; bottom:20px; right:20px; width:250px; background:white; border:2px solid #0055aa; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.2); padding:1rem; } #kmScoreboard h3 { margin-top:0; font-size:1.1rem; text-align:center; } table { width:100%; border-collapse:collapse; } th, td { border:1px solid #ccc; padding:0.3rem; text-align:center; } th { background:#f0f0f0; }
+  body, html { margin:0; padding:0; height:100%; }
+  iframe { width:100%; height:100%; border:none; }/* KM Scoreboard kutusu */ #kmScoreboard { position:fixed; bottom:20px; right:20px; width:250px; background:white; border:2px solid #0055aa; border-radius:8px; box-shadow:0 0 15px rgba(0,0,0,0.3); padding:1rem; z-index:9999; } #kmScoreboard h3 { margin-top:0; font-size:1.1rem; text-align:center; } table { width:100%; border-collapse:collapse; } th, td { border:1px solid #ccc; padding:0.3rem; text-align:center; } th { background:#f0f0f0; } </style>
 
-</style>
 </head>
-<body>
-<header>
-  <h1>Türk Riders Chopper Club</h1>
-</header>
-<nav>
-  <a href="#">Ana Sayfa</a>
-  <a href="#">Hakkımızda</a>
-  <a href="#">Etkinlikler</a>
-  <a href="#">İletişim</a>
-</nav>
-<main>
-  <h2>Hoşgeldiniz!</h2>
-  <p>Bu demo sayfa, KM Scoreboard için tasarlanmıştır. İçerik tamamen boş bırakılmıştır.</p>  <!-- KM Scoreboard Alanı -->  <div id="kmScoreboard">
-    <h3>KM Scoreboard</h3>
-    <table>
-      <thead>
-        <tr><th>Üye</th><th>KM</th></tr>
-      </thead>
-      <tbody>
-        <!-- Buraya veri eklenecek -->
-      </tbody>
-    </table>
-    <p style="text-align:center;font-size:0.8rem;color:#555;">Veriler daha sonra eklenecek</p>
-  </div>
-</main>
-</body>
+<body><iframe src="https://turkriders.org/"></iframe><div id="kmScoreboard">
+  <h3>KM Scoreboard</h3>
+  <table>
+    <thead>
+      <tr><th>Üye</th><th>KM</th></tr>
+    </thead>
+    <tbody>
+      <!-- Daha sonra veri eklenecek -->
+    </tbody>
+  </table>
+  <p style="text-align:center;font-size:0.8rem;color:#555;">Veriler daha sonra eklenecek</p>
+</div></body>
 </html>
